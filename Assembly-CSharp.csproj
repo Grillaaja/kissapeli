@@ -64,10 +64,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraScript.cs" />
-    <Compile Include="Assets\CollectionController.cs" />
-    <Compile Include="Assets\Enemy.cs" />
-    <Compile Include="Assets\PlayerMovement.cs" />
+    <Compile Include="Assets\Scriptit\CameraScript.cs" />
+    <Compile Include="Assets\Scriptit\CollectionController.cs" />
+    <Compile Include="Assets\Scriptit\Enemy.cs" />
+    <Compile Include="Assets\Scriptit\PlayerMovement.cs" />
+    <Compile Include="Assets\Scriptit\ProjectileMovement.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.18f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
