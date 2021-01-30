@@ -122,3 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  Bruh: {fileID: 1031267759446261619, guid: fca72506dd2d5b0449fb692de59083e2, type: 3}

@@ -9,6 +9,7 @@ public class ProjectileMovement : MonoBehaviour
 
     private Transform player;
     private Vector2 target;
+    public AudioSource Bruh;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class ProjectileMovement : MonoBehaviour
         {
             PlayerMovement.hpUpdate = PlayerMovement.hpUpdate - 2;
             DestroyProjectile();
+            Bruh.Play();
         }
     }
     void DestroyProjectile()

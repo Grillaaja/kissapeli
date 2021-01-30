@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 307
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -120,8 +120,8 @@ MonoBehaviour:
     y: 0
     width: 223
     height: 671
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -375,9 +375,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: c6390000
-    m_LastClickedID: 14790
-    m_ExpandedIDs: 00000000c639000000ca9a3b
+    m_SelectedIDs: e2390000
+    m_LastClickedID: 14818
+    m_ExpandedIDs: 00000000e239000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -405,7 +405,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000c6390000
+    m_ExpandedIDs: 00000000e2390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -498,7 +498,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 300
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -530,7 +530,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 64fbffff38390000
+      m_ExpandedIDs: eef0ffff303a0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -583,16 +583,16 @@ MonoBehaviour:
   m_ShowContextualTools: 0
   m_WindowGUID: df0eac6e470ae4c40ba24624dc7d2ae4
   m_Gizmos: 1
-  m_SceneIsLit: 1
+  m_SceneIsLit: 0
   m_SceneLighting: 1
   m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.1891998, y: 1.0845859, z: -1.0396051}
+    m_Target: {x: -14.499106, y: -2.1911836, z: -3.2004664}
     speed: 2
-    m_Value: {x: -0.24426332, y: 0.94839555, z: -1.0166016}
+    m_Value: {x: -13.890694, y: -2.097099, z: -3.106092}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
   m_SceneViewState:
     showFog: 1
     showMaterialUpdate: 0
-    showSkybox: 1
+    showSkybox: 0
     showFlares: 1
     showImageEffects: 1
     showParticleSystems: 1
@@ -642,9 +642,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.34495
+    m_Target: 21.921339
     speed: 2
-    m_Value: 5.1147847
+    m_Value: 20.977358
   m_Ortho:
     m_Target: 1
     speed: 2
