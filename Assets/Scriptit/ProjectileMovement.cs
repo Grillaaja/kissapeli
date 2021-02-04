@@ -4,39 +4,38 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-
+    //Projectilen nopeus ja pelaajan alustus
     public float speed;
-
     private Transform player;
     private Vector2 target;
-    public AudioSource Bruh;
-    // Start is called before the first frame update
+
+
     void Start()
     {
+        //Alustetaan pelaaja, ja kohdealue pelaajan viimeisimmästä paikasta
         player = GameObject.FindGameObjectWithTag("Player").transform;
-
         target = new Vector2(player.position.x, player.position.y);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //Projectilen liikkuminen pelaajaa kohti ja sen tuhoutuminen osuessa ammuttuun kohteeseen
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
         if(transform.position.x == target.x && transform.position.y == target.y)
         {
             DestroyProjectile();
         }
+        
     }
 
 
+    //Pelaajaan osuessa projectilen tuhoutuminen ja pelaajan HP tippuminen
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            PlayerMovement.hpUpdate = PlayerMovement.hpUpdate - 2;
+            PlayerController.hpUpdate = PlayerController.hpUpdate - 2;
             DestroyProjectile();
-            Bruh.Play();
         }
     }
     void DestroyProjectile()

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4837742376122281572
+--- !u!1 &1934258300188725573
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4535249805447751761}
-  - component: {fileID: 1031267759446261619}
+  - component: {fileID: 8005820492895901182}
+  - component: {fileID: 8251949346394567833}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: big-shaq-boom-sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4535249805447751761
+--- !u!4 &8005820492895901182
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837742376122281572}
+  m_GameObject: {fileID: 1934258300188725573}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1891998, y: 1.0845859, z: -1.0396051}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1031267759446261619
+--- !u!82 &8251949346394567833
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837742376122281572}
+  m_GameObject: {fileID: 1934258300188725573}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: efc175b48e3229246902bb6a23a8d45e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d111ee6ab245d8f44b4873b38cd83e25, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

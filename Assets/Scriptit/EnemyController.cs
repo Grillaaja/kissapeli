@@ -2,29 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-
+    //Statsit
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
     private float attackSpeed;
     public float startAttackSpeed;
+
+    //Komponentit
     public GameObject projectile;
-
     public Transform player;
+    private AudioSource Boom;
 
-    // Start is called before the first frame update
     void Start()
     {
+        //Alustetaan vastustajalle löydettävä pelaaja, ammusääni ja statsit
         player = GameObject.FindGameObjectWithTag("Player").transform;
         attackSpeed = startAttackSpeed;
+        Boom = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-
+        //Liikkumis, ja löytämis scripti
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
@@ -35,10 +37,11 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
 
+        //Ammuntascripti
         if(attackSpeed <= 0)
         {
-
             Instantiate(projectile, transform.position, Quaternion.identity);
+            Boom.Play();
             attackSpeed = startAttackSpeed;
 
         }else
