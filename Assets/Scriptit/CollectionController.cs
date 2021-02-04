@@ -45,7 +45,7 @@ public class CollectionController : MonoBehaviour
         if (collision.tag == "Player" && id == 3)
         {
             PlayerController.collectedAmount++;
-            PlayerController.attSpeedUpdate++;
+            PlayerController.attSpeedUpdate = PlayerController.attSpeedUpdate - (PlayerController.attSpeedUpdate / 10);
             Destroy(gameObject);
         }
     }

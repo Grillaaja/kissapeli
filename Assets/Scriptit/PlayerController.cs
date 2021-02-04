@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Alustetaan X ja Y akseleiden liikkumispainikkeet
+        attSpeed = attSpeedUpdate;
         float hor = Input.GetAxis("Horizontal");
         float ver = Input.GetAxis("Vertical");
 

@@ -9,6 +9,8 @@ public class AimController : MonoBehaviour
 
     public Transform firePoint;
     public GameObject projectile;
+    private float firerate;
+    private float nextDmgEvent;
 
     void Start()
     {
@@ -17,16 +19,19 @@ public class AimController : MonoBehaviour
 
     void Update()
     {
-        Vector3 mouse = Input.mousePosition;
-        Vector3 screenPoint = cam.WorldToScreenPoint(transform.localPosition);
-
-        Vector2 offset = new Vector2(mouse.x - screenPoint.x, mouse.y - screenPoint.y);
-
-        float angle = Mathf.Atan2(offset.y, offset.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-
-        if (Input.GetMouseButtonDown(0)){
-            Instantiate(projectile, firePoint.position, firePoint.rotation);
+        Debug.Log(firerate);
+        firerate = GetComponentInParent<PlayerController>().attSpeed;
+        Vector2 dir = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 10 * Time.deltaTime);
+        if (Input.GetMouseButton(0))
+        {
+            if(Time.time >= nextDmgEvent)
+            {
+                nextDmgEvent = Time.time + firerate;
+                Instantiate(projectile, firePoint.position, firePoint.rotation);
+            }
         }
     }
 }

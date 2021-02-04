@@ -23,7 +23,7 @@ public class PlayerProjectile : MonoBehaviour
         {
             //vihun hp pois
             Destroy(gameObject);
-        }else if (collision.tag == "Player")
+        }else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile")
         {
             //eimitää
         }
