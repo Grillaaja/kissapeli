@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {   
@@ -6,6 +7,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rgbody;
     public GameObject projectile;
     private Camera cam;
+    public Animator animator;
+
 
     //UI tekstit
     public Text collectedText;
@@ -54,12 +57,21 @@ public class PlayerController : MonoBehaviour
         speedit.text = "MS = " + speedUpdate;
         aspeedit.text = "AS = " + attSpeedUpdate;
 
+        animator.SetFloat("Horizontal", hor);
+        animator.SetFloat("Vertical", ver);
+        animator.SetFloat("Speed", rgbody.velocity.magnitude);
+
         //Jos kerättyjä esineitä on tarpeeksi, teksti muuttuu
         if(collectedAmount >= 5)
         {
             collectedText.text = "VOITIT PELIN";
         }
 
+        //Jos pelaajan HP 0 tai alle, siirtymä Main menuun
+        if (hpUpdate <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
 
 

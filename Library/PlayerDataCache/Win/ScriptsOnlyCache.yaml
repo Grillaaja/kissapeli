@@ -1,17 +1,17 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - AimController
     - CameraScript
     - CollectionController
-    - Enemy
-    - PlayerMovement
+    - EnemyController
+    - PlayerController
+    - PlayerProjectile
     - ProjectileMovement
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.GridPaletteBrushes
-    - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
@@ -48,28 +48,38 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 590}
     - Class: 114
       Script: {instanceID: 11266}
     - Class: 114
       Script: {instanceID: 11554}
     - Class: 114
-      Script: {instanceID: 12122}
+      Script: {instanceID: 11854}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12124}
     - Class: 114
-      Script: {instanceID: 13302}
+      Script: {instanceID: 12280}
     - Class: 114
-      Script: {instanceID: 13746}
+      Script: {instanceID: 13304}
     - Class: 114
-      Script: {instanceID: 13810}
+      Script: {instanceID: 13608}
     - Class: 114
-      Script: {instanceID: 14192}
+      Script: {instanceID: 13750}
     - Class: 114
-      Script: {instanceID: 14252}
+      Script: {instanceID: 13814}
     - Class: 114
-      Script: {instanceID: 14364}
+      Script: {instanceID: 14196}
+    - Class: 114
+      Script: {instanceID: 14256}
+    - Class: 114
+      Script: {instanceID: 14368}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -87,6 +97,14 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 19719996
+      Script: {instanceID: 0}
+    - Class: 156049354
+      Script: {instanceID: 0}
+    - Class: 483693784
+      Script: {instanceID: 0}
+    - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -223,6 +241,12 @@ ScriptsOnlyBuild:
     className: PhysicsRaycaster
   - hash:
       serializedVersion: 2
+      Hash: d335469a6afc23757d51bd617c4dbad6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AimController
+  - hash:
+      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -277,10 +301,10 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 2ec19caafe2b1136dd71c0e1e8bb9dbe
+      Hash: 4624f5f173f219d37c9cf5ef64bb81fd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PlayerMovement
+    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -409,7 +433,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: 2ecdbe75f54c8965e9d317f6c9a2e0e3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CollectionController
@@ -455,6 +479,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 2445479c25b0a7273e0588f722f7baeb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerProjectile
   - hash:
       serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491
@@ -532,7 +562,7 @@ ScriptsOnlyBuild:
       Hash: f121d64db5c3228ac6a89a5eaa181ab8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Enemy
+    className: EnemyController
   - hash:
       serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
@@ -608,4 +638,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/Grillman88/Desktop/Kissapeli3.exe
+  playerPath: C:/Users/Grillman88/Desktop/Kissapeli3 v0.02/Kissapeli3.exe
