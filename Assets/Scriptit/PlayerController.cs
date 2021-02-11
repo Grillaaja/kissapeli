@@ -5,9 +5,9 @@ public class PlayerController : MonoBehaviour
 {   
     //Komponentit
     public Rigidbody2D rgbody;
-    public GameObject projectile;
     private Camera cam;
     public Animator animator;
+    public HealthBar healthBar;
 
 
     //UI tekstit
@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public static float attSpeedUpdate = 0;
     public int dmg;
     public static int dmgUpdate = 0;
+    public static int maxHp = 0;
     
 
 
@@ -40,6 +41,9 @@ public class PlayerController : MonoBehaviour
         speedUpdate = speed;
         dmgUpdate = dmg;
         cam = Camera.main;
+        healthBar.SetMaxHealth(hp);
+        maxHp = hp;
+        
     }
 
     void Update()
@@ -56,6 +60,8 @@ public class PlayerController : MonoBehaviour
         damaget.text = "DMG = " + dmgUpdate;
         speedit.text = "MS = " + speedUpdate;
         aspeedit.text = "AS = " + attSpeedUpdate;
+        healthBar.SetMaxHealth(hp);
+        healthBar.SetHealth(hpUpdate);
 
         animator.SetFloat("Horizontal", hor);
         animator.SetFloat("Vertical", ver);
@@ -72,6 +78,13 @@ public class PlayerController : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
+
+        //Jos pelaajan hp menee maksimin yli, ne laskevat maksimiin
+        if(hpUpdate > maxHp)
+        {
+            hpUpdate = maxHp;
+        }
+
     }
 
 
