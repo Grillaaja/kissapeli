@@ -64,6 +64,7 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(healtit);
+            PlayerController.raha = PlayerController.raha + 10;
         }
 
     }

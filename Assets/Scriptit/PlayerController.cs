@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public Text damaget;
     public Text speedit;
     public Text aspeedit;
+    public Text rahat;
 
     //Statsit
     public static int collectedAmount = 0;
@@ -28,11 +30,16 @@ public class PlayerController : MonoBehaviour
     public int dmg;
     public static int dmgUpdate = 0;
     public static int maxHp = 0;
-    
+
+    //Aikoja yms
+    private float invincibilityTime = 0.5f;
+    private bool isInvincible = false;
+    public static int raha = 0;
 
 
 
-    
+
+
     void Start()
     {
         // Alustetaan pelaajan attribuutit
@@ -60,9 +67,12 @@ public class PlayerController : MonoBehaviour
         damaget.text = "DMG = " + dmgUpdate;
         speedit.text = "MS = " + speedUpdate;
         aspeedit.text = "AS = " + attSpeedUpdate;
+        rahat.text = "" + raha;
         healthBar.SetMaxHealth(hp);
         healthBar.SetHealth(hpUpdate);
 
+
+        //Animaatioita varten suunnat ja muut
         animator.SetFloat("Horizontal", hor);
         animator.SetFloat("Vertical", ver);
         animator.SetFloat("Speed", rgbody.velocity.magnitude);
@@ -85,7 +95,28 @@ public class PlayerController : MonoBehaviour
             hpUpdate = maxHp;
         }
 
+
+
     }
 
+    private IEnumerator BecomeTemporarilyInvincible()
+    {
+        Debug.Log("invincible");
+        isInvincible = true;
+
+        yield return new WaitForSeconds(invincibilityTime);
+
+        isInvincible = false;
+        Debug.Log("not invincible");
+    }
+
+    public void LoseHealth(int amount)
+    {
+        if (isInvincible) return;
+
+        hpUpdate -= amount;
+
+        StartCoroutine(BecomeTemporarilyInvincible());
+    }
 
 }

@@ -4,37 +4,44 @@ using UnityEngine;
 
 public class ProjectileMovement : MonoBehaviour
 {
-    //Projectilen nopeus ja pelaajan alustus
-    public float speed;
+    //Projectilen nopeus, damage ja pelaajan alustus
+    public float speed = 7f;
     private Transform player;
-    private Vector2 target;
+    private Vector2 movedirection;
+    Rigidbody2D rb;
+    GameObject playerref;
+    PlayerController playerscript;
+    public int dmg;
 
 
     void Start()
     {
-        //Alustetaan pelaaja, ja kohdealue pelaajan viimeisimmästä paikasta
+        //Alustetaan pelaaja, ja ammuntasuunta pelaajan sijainnista
+        playerref = GameObject.FindGameObjectWithTag("Player");
+        playerscript = playerref.GetComponent<PlayerController>();
+        rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.y);
+        movedirection = (player.transform.position - transform.position).normalized * speed;
+        rb.velocity = new Vector2(movedirection.x, movedirection.y);
+        Destroy(gameObject, 6f);
     }
 
     void Update()
     {
-        //Projectilen liikkuminen pelaajaa kohti ja sen tuhoutuminen osuessa ammuttuun kohteeseen
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        if(transform.position.x == target.x && transform.position.y == target.y)
-        {
-            DestroyProjectile();
-        }
-        
+
     }
 
 
-    //Pelaajaan osuessa projectilen tuhoutuminen ja pelaajan HP tippuminen
+    //Pelaajaan tai muuhun osuessa projectilen tuhoutuminen ja pelaajan HP tippuminen, jos osuttu on pelaaja
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            PlayerController.hpUpdate = PlayerController.hpUpdate - 2;
+            DestroyProjectile();
+            playerscript.LoseHealth(dmg);
+        }
+        else if (other.CompareTag("Wall"))
+        {
             DestroyProjectile();
         }
     }

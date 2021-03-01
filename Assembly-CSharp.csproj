@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scriptit\CollectionController.cs" />
     <Compile Include="Assets\Scriptit\EnemyController.cs" />
     <Compile Include="Assets\Scriptit\HealthBar.cs" />
+    <Compile Include="Assets\Scriptit\Interactable.cs" />
     <Compile Include="Assets\Scriptit\MainMenu.cs" />
     <Compile Include="Assets\Scriptit\PlayerController.cs" />
     <Compile Include="Assets\Scriptit\PlayerProjectile.cs" />
