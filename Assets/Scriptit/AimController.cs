@@ -19,7 +19,6 @@ public class AimController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(firerate);
         firerate = GetComponentInParent<PlayerController>().attSpeed;
         Vector2 dir = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
