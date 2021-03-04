@@ -12,7 +12,8 @@ public class EnemyController : MonoBehaviour
     private float attackSpeed;
     public float startAttackSpeed;
     public int hp;
-    public static int hpupdate = 0;
+    public int hpupdate = 0;
+    public int maxhp;
 
     //Komponentit
     public GameObject projectile;
@@ -20,7 +21,7 @@ public class EnemyController : MonoBehaviour
     private AudioSource Boom;
 
     //UI
-    public Text healtit;
+    public EnemyHealthbar healthbar;
 
     void Start()
     {
@@ -29,12 +30,11 @@ public class EnemyController : MonoBehaviour
         attackSpeed = startAttackSpeed;
         Boom = GetComponent<AudioSource>();
         hpupdate = hp;
+        maxhp = hp;
     }
 
     void Update()
     {
-        //UI päivitys
-        healtit.text = "Enemy HP = " + hpupdate;
 
         //Liikkumis, ja löytämis scripti
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
@@ -63,9 +63,18 @@ public class EnemyController : MonoBehaviour
         if(hpupdate <= 0)
         {
             Destroy(gameObject);
-            Destroy(healtit);
             PlayerController.raha = PlayerController.raha + 10;
         }
+        //hpbar update
+        healthbar.SetHealth(hpupdate, maxhp);
 
     }
+
+    //Healthbarin toiminta
+    public void TakeHit(int dmg)
+    {
+        hpupdate = hpupdate - dmg;
+        healthbar.SetHealth(hpupdate, maxhp);
+    }
+
 }
