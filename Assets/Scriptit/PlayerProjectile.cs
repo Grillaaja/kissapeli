@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerProjectile : MonoBehaviour
 {
 
-    public float speed = 10f;
+    public float speed = 20f;
     public Rigidbody2D rb;
+    GameObject enemy;
+    EnemyController script;
     void Start()
     {
         
@@ -22,7 +24,9 @@ public class PlayerProjectile : MonoBehaviour
         if(collision.tag == "Enemy")
         {
             //vihun hp pois
-            EnemyController.hpupdate = EnemyController.hpupdate - PlayerController.dmgUpdate;
+            enemy = collision.gameObject;
+            script = enemy.GetComponent<EnemyController>();
+            script.TakeHit(PlayerController.dmgUpdate);
             Destroy(gameObject);
         }else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile")
         {
