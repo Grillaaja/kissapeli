@@ -14,18 +14,29 @@ public class EnemyController : MonoBehaviour
     public int hp;
     public int hpupdate = 0;
     public int maxhp;
+    public float attackRange;
 
     //Komponentit
     public GameObject projectile;
     public Transform player;
     private AudioSource Boom;
+    PlayerController playerscript;
+    GameObject playerref;
 
     //UI
     public EnemyHealthbar healthbar;
 
+    //ID(melee = 1 vai range = 0)
+    public int id;
+
+    //Timerit yms.
+    private float lastAttackTime;
+
     void Start()
     {
         //Alustetaan vastustajalle löydettävä pelaaja, ammusääni ja statsit
+        playerref = GameObject.FindGameObjectWithTag("Player");
+        playerscript = playerref.GetComponent<PlayerController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         attackSpeed = startAttackSpeed;
         Boom = GetComponent<AudioSource>();
@@ -48,7 +59,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //Ammuntascripti
-        if(attackSpeed <= 0)
+        if(attackSpeed <= 0 && id == 0)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             Boom.Play();
@@ -57,6 +68,22 @@ public class EnemyController : MonoBehaviour
         }else
         {
             attackSpeed -= Time.deltaTime;
+        }
+
+        //Melee iskuscripti
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        if (distanceToPlayer < attackRange && id == 1)
+        {
+            if (attackSpeed <= 0)
+            {
+                playerscript.LoseHealth(5);
+                Boom.Play();
+                attackSpeed = startAttackSpeed;
+            }
+            else
+            {
+                attackSpeed -= Time.deltaTime;
+            }
         }
 
         //Tuhoutuminen
@@ -76,5 +103,7 @@ public class EnemyController : MonoBehaviour
         hpupdate = hpupdate - dmg;
         healthbar.SetHealth(hpupdate, maxhp);
     }
+
+
 
 }

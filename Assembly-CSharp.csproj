@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scriptit\PlayerController.cs" />
     <Compile Include="Assets\Scriptit\PlayerProjectile.cs" />
     <Compile Include="Assets\Scriptit\ProjectileMovement.cs" />
+    <Compile Include="Assets\Scriptit\ShopController.cs" />
     <Compile Include="Assets\Scriptit\Tasogeneraatio.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
