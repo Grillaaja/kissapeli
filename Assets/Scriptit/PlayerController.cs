@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     private float invincibilityTime = 0.5f;
     private bool isInvincible = false;
     public static int raha = 0;
+    public static bool poisonammo = false;
+    public static bool tripleshot = false;
 
 
 
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         healthBar.SetMaxHealth(hp);
         maxHp = hp;
+        raha = 0;
         
     }
 

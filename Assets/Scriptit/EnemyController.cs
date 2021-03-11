@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     private AudioSource Boom;
     PlayerController playerscript;
     GameObject playerref;
+    public Animator animator;
 
     //UI
     public EnemyHealthbar healthbar;
@@ -31,6 +32,9 @@ public class EnemyController : MonoBehaviour
 
     //Timerit yms.
     private float lastAttackTime;
+    public bool isPoisoned = false;
+    float elapsed = 0f;
+    public int ticks = 0;
 
     void Start()
     {
@@ -45,8 +49,7 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update()
-    {
-
+    { 
         //Liikkumis, ja löytämis scripti
         if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
@@ -56,6 +59,22 @@ public class EnemyController : MonoBehaviour
             transform.position = this.transform.position;
         }else if (Vector2.Distance(transform.position, player.position) < retreatDistance){
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+        }
+
+        //Myrkytysvahingon otto
+        if (ticks > 4)
+        {
+            isPoisoned = false;
+        }
+        if (isPoisoned)
+        {
+            elapsed += Time.deltaTime;
+            if (elapsed >= 1f)
+            {
+                elapsed = elapsed % 1f;
+                TakeHit(8);
+                ticks++;
+            }
         }
 
         //Ammuntascripti
@@ -69,6 +88,10 @@ public class EnemyController : MonoBehaviour
         {
             attackSpeed -= Time.deltaTime;
         }
+
+        animator.SetFloat("Horizontal", transform.position.x);
+        animator.SetFloat("Vertical", transform.position.y);
+        animator.SetFloat("Speed", transform.position.magnitude);
 
         //Melee iskuscripti
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -95,6 +118,11 @@ public class EnemyController : MonoBehaviour
         //hpbar update
         healthbar.SetHealth(hpupdate, maxhp);
 
+    }
+
+    private void FixedUpdate()
+    {
+        
     }
 
     //Healthbarin toiminta
