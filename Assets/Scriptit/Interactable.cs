@@ -9,17 +9,16 @@ public class Interactable : MonoBehaviour
     public KeyCode interactKey;
     public UnityEvent interactAction;
     public SpriteRenderer sp;
-    public Text interactText;
     public int id;
     public int hinta;
 
     void Start()
     {
-        
     }
 
     void Update()
     {
+
         if(isInRange)
         {
             sp.color = new Color(1f, 1f, 1f, .75f);
@@ -34,27 +33,34 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && id == 0)
         {
-            interactText.text = "Buy Gunpowder? (" + hinta + ")";
             isInRange = true;
             Debug.Log("Player now in range");
         }
-        if (collision.tag == "Player" && id == 1)
+        else if (collision.tag == "Player" && id == 1)
         {
-            interactText.text = "Buy Rat Poison? (" + hinta + ")";
+            isInRange = true;
+            Debug.Log("Player now in range");
+        }
+        else if (collision.tag == "Player" && id == 2)
+        {
+            isInRange = true;
+            Debug.Log("Player now in range");
+        }
+        else if (collision.tag == "Player" && id == 3)
+        {
             isInRange = true;
             Debug.Log("Player now in range");
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            interactText.text = "";
             isInRange = false;
             Debug.Log("Player now not in range");
         }

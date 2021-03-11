@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1804373402302190326}
   m_Layer: 0
   m_Name: GunPowder
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,8 +113,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   sp: {fileID: 1804373402302190325}
-  interactText: {fileID: 2584236556005930445, guid: 66a603f759e5bc3419d0802252ef4e17,
-    type: 3}
+  interactText: {fileID: 0}
   id: 0
   hinta: 5
 --- !u!58 &1804373402302190327
@@ -146,5 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hinta: 5
-  conditionalText: {fileID: 2584236556005930445, guid: 66a603f759e5bc3419d0802252ef4e17,
-    type: 3}
+  conditionalText: {fileID: 0}
