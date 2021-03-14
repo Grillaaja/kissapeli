@@ -38,7 +38,7 @@ public class PlayerProjectile : MonoBehaviour
                 script.isPoisoned = true;
             }
             Destroy(gameObject);
-        }else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile")
+        }else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile" || collision.tag == "Dummy")
         {
             //eimitää
         }

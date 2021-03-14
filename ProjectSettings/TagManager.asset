@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Projectile
   - Wall
+  - Dummy
   layers:
   - Default
   - TransparentFX

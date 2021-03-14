@@ -9,6 +9,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
+    public float revealDistance;
     private float attackSpeed;
     public float startAttackSpeed;
     public int hp;
@@ -23,6 +24,7 @@ public class EnemyController : MonoBehaviour
     PlayerController playerscript;
     GameObject playerref;
     public Animator animator;
+    public GameObject meat;
 
     //UI
     public EnemyHealthbar healthbar;
@@ -35,6 +37,7 @@ public class EnemyController : MonoBehaviour
     public bool isPoisoned = false;
     float elapsed = 0f;
     public int ticks = 0;
+    public static bool isThereAnyMeat = false;
 
     void Start()
     {
@@ -49,16 +52,25 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update()
-    { 
-        //Liikkumis, ja löytämis scripti
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+    {
+        //Liikkumis, ja löytämis scripti, sekä ansan priorisointi
+        if (!isThereAnyMeat) 
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+            meat = null;
+            if (Vector2.Distance(transform.position, player.position) > stoppingDistance && Vector2.Distance(transform.position, player.position) < revealDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            } else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+            {
+                transform.position = this.transform.position;
+            } else if (Vector2.Distance(transform.position, player.position) < retreatDistance) {
+                transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            }
+        }
+        else
         {
-            transform.position = this.transform.position;
-        }else if (Vector2.Distance(transform.position, player.position) < retreatDistance){
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            meat = GameObject.FindGameObjectWithTag("Dummy");
+            transform.position = Vector2.MoveTowards(transform.position, meat.transform.position, speed * Time.deltaTime);
         }
 
         //Myrkytysvahingon otto
@@ -78,7 +90,7 @@ public class EnemyController : MonoBehaviour
         }
 
         //Ammuntascripti
-        if(attackSpeed <= 0 && id == 0)
+        if(attackSpeed <= 0 && id == 0 && Vector2.Distance(transform.position, player.position) < revealDistance)
         {
             Instantiate(projectile, transform.position, Quaternion.identity);
             Boom.Play();

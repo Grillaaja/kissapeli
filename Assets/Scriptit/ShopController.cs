@@ -7,6 +7,12 @@ using UnityEngine.UI;
 public class ShopController : MonoBehaviour
 {
     public int hinta;
+    public GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
     public void PickGunpowder()
     {
         if (PlayerController.raha > hinta)
@@ -45,16 +51,33 @@ public class ShopController : MonoBehaviour
             Debug.Log("Not enough Fish!");
         }
     }
+
+    public void PickBait()
+    {
+        if (PlayerController.raha > hinta)
+        {
+            PlayerController.raha = PlayerController.raha - hinta;
+            BaitScript.hasBait = true;
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Not enough Fish!");
+        }
+    }
     public void Teleport()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (PlayerController.visitedshop == false)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            player.transform.Translate(0, 20, 0);
+            PlayerController.visitedshop = true;
+            //Debug.Log(PlayerController.visitedshop);
         }
-
-        if (SceneManager.GetActiveScene().buildIndex == 2)
+        else if (PlayerController.visitedshop == true)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            player.transform.Translate(0, -20, 0);
+            PlayerController.visitedshop = false;
+            //Debug.Log(PlayerController.visitedshop);
         }
     }
 }

@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public static int raha = 0;
     public static bool poisonammo = false;
     public static bool tripleshot = false;
+    public static bool visitedshop = false;
 
 
 
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         healthBar.SetMaxHealth(hp);
         maxHp = hp;
-        raha = 0;
+        raha = 9999999;
         
     }
 

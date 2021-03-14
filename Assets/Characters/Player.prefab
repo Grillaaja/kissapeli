@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 960545387012619713}
   - component: {fileID: 960545387012619712}
   - component: {fileID: 960545387012619716}
+  - component: {fileID: -8419087681682264974}
   - component: {fileID: 960545387012619715}
   - component: {fileID: 960545387012619717}
   m_Layer: 0
@@ -178,6 +179,21 @@ MonoBehaviour:
   hp: 20
   attSpeed: 0.5
   dmg: 20
+--- !u!114 &-8419087681682264974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960545387012619727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6235704e67badc4682510819a8625e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactKey: 102
+  player: {fileID: 960545387012619714}
+  meat: {fileID: 1804373402302190321, guid: 3509222604c886543bc5450ccc89ded0, type: 3}
 --- !u!61 &960545387012619715
 BoxCollider2D:
   m_ObjectHideFlags: 0
