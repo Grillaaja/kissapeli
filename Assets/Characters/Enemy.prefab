@@ -202,6 +202,7 @@ MonoBehaviour:
   speed: 6
   stoppingDistance: 5
   retreatDistance: 2
+  revealDistance: 10
   startAttackSpeed: 2
   hp: 100
   hpupdate: 0
@@ -211,8 +212,11 @@ MonoBehaviour:
     type: 3}
   player: {fileID: 0}
   animator: {fileID: -6754024737107950493}
+  meat: {fileID: 1804373402302190321, guid: 3509222604c886543bc5450ccc89ded0, type: 3}
   healthbar: {fileID: 1574934255616303236}
   id: 0
+  isPoisoned: 0
+  ticks: 0
 --- !u!50 &1574934254526512532
 Rigidbody2D:
   serializedVersion: 4

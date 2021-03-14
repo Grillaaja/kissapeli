@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scriptit\AimController.cs" />
+    <Compile Include="Assets\Scriptit\BaitScript.cs" />
     <Compile Include="Assets\Scriptit\CameraScript.cs" />
     <Compile Include="Assets\Scriptit\CollectionController.cs" />
     <Compile Include="Assets\Scriptit\EnemyController.cs" />
