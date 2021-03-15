@@ -67,17 +67,20 @@ public class ShopController : MonoBehaviour
     }
     public void Teleport()
     {
-        if (PlayerController.visitedshop == false)
+        if (PlayerController.visitedshop == false && PlayerController.visitedboss == false)
         {
-            player.transform.Translate(0, 20, 0);
+            player.transform.Translate(-10.23f, 15.94f, 0);
             PlayerController.visitedshop = true;
-            //Debug.Log(PlayerController.visitedshop);
         }
-        else if (PlayerController.visitedshop == true)
+        else if (PlayerController.visitedshop == true && PlayerController.visitedboss == false)
         {
-            player.transform.Translate(0, -20, 0);
+            player.transform.Translate(33.51f, -73.75f, 0);
             PlayerController.visitedshop = false;
-            //Debug.Log(PlayerController.visitedshop);
+            PlayerController.visitedboss = true;
+        }else if (PlayerController.visitedboss == true && PlayerController.visitedshop == false)
+        {
+            player.transform.Translate(-31.4f, 25.16f, 0);
+            PlayerController.visitedboss = false;
         }
     }
 }
