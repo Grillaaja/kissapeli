@@ -9,7 +9,9 @@ public class PlayerProjectile : MonoBehaviour
     public Rigidbody2D rb;
     GameObject enemy;
     EnemyController script;
+    BossController bscript;
     public SpriteRenderer sp;
+    GameObject boss;
     void Start()
     {
         
@@ -38,9 +40,23 @@ public class PlayerProjectile : MonoBehaviour
                 script.isPoisoned = true;
             }
             Destroy(gameObject);
-        }else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile" || collision.tag == "Dummy")
+        }
+        else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile" || collision.tag == "Dummy")
         {
             //eimitää
+        }
+        else if (collision.tag == "Boss")
+        {
+            //vihun hp pois
+            boss = collision.gameObject;
+            bscript = boss.GetComponent<BossController>();
+            bscript.TakeHit(PlayerController.dmgUpdate);
+            if (PlayerController.poisonammo)
+            {
+                bscript.ticks = 0;
+                bscript.isPoisoned = true;
+            }
+            Destroy(gameObject);
         }
         else
         {

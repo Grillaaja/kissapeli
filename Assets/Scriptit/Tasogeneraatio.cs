@@ -8,15 +8,19 @@ public class Tasogeneraatio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int rand = Random.Range(0, objects.Length);
-        Instantiate(objects[rand], transform.position, Quaternion.identity); 
+        float rand = Random.Range(0.2f, 0.9f);
+        Invoke("Spawn", rand);
     }
 
     private void Update()
     {
-        
+
     }
 
-    // Update is called once per frame
+    private void Spawn()
+    {
+        int rand = Random.Range(0, objects.Length);
+        Instantiate(objects[rand], transform.position, Quaternion.identity);
+    }
 
 }

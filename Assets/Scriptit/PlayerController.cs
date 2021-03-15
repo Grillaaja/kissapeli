@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public static bool poisonammo = false;
     public static bool tripleshot = false;
     public static bool visitedshop = false;
+    public static bool visitedboss = false;
 
 
 
