@@ -67,11 +67,16 @@
     <Compile Include="Assets\Scriptit\AimController.cs" />
     <Compile Include="Assets\Scriptit\BaitScript.cs" />
     <Compile Include="Assets\Scriptit\BossController.cs" />
+    <Compile Include="Assets\Scriptit\BossHealth.cs" />
     <Compile Include="Assets\Scriptit\BossProjectile1.cs" />
+    <Compile Include="Assets\Scriptit\BossProjectile2.cs" />
+    <Compile Include="Assets\Scriptit\BossProjectileFragment.cs" />
     <Compile Include="Assets\Scriptit\CameraScript.cs" />
+    <Compile Include="Assets\Scriptit\Chest.cs" />
     <Compile Include="Assets\Scriptit\CollectionController.cs" />
     <Compile Include="Assets\Scriptit\EnemyController.cs" />
     <Compile Include="Assets\Scriptit\EnemyHealthbar.cs" />
+    <Compile Include="Assets\Scriptit\GameOver.cs" />
     <Compile Include="Assets\Scriptit\HealthBar.cs" />
     <Compile Include="Assets\Scriptit\Interactable.cs" />
     <Compile Include="Assets\Scriptit\MainMenu.cs" />
@@ -80,6 +85,7 @@
     <Compile Include="Assets\Scriptit\PlayerProjectile.cs" />
     <Compile Include="Assets\Scriptit\ProjectileMovement.cs" />
     <Compile Include="Assets\Scriptit\ShopController.cs" />
+    <Compile Include="Assets\Scriptit\ShopMusicEnabler.cs" />
     <Compile Include="Assets\Scriptit\Tasogeneraatio.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
