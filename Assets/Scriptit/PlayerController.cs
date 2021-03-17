@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 
 
     //UI tekstit
-    public Text collectedText;
     public Text healtit;
     public Text damaget;
     public Text speedit;
@@ -39,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public static bool tripleshot = false;
     public static bool visitedshop = false;
     public static bool visitedboss = false;
+    public static bool victory = false;
 
 
 
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         healthBar.SetMaxHealth(hp);
         maxHp = hp;
-        raha = 9999999;
+        raha = 0;
         
     }
 
@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
 
         //Alustetaan pelaajan nopeus "Speed" statsista ja näkyvät UI tekstit
         rgbody.velocity = new Vector3(hor * speedUpdate, ver * speedUpdate, 0);
-        collectedText.text = "Items collected: " + collectedAmount;
         healtit.text = "HP = " + hpUpdate;
         damaget.text = "DMG = " + dmgUpdate;
         speedit.text = "MS = " + speedUpdate;
@@ -82,16 +81,11 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Vertical", ver);
         animator.SetFloat("Speed", rgbody.velocity.magnitude);
 
-        //Jos kerättyjä esineitä on tarpeeksi, teksti muuttuu
-        if(collectedAmount >= 5)
-        {
-            collectedText.text = "VOITIT PELIN";
-        }
 
         //Jos pelaajan HP 0 tai alle, siirtymä Main menuun
         if (hpUpdate <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         //Jos pelaajan hp menee maksimin yli, ne laskevat maksimiin

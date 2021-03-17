@@ -101,8 +101,8 @@ public class EnemyController : MonoBehaviour
             attackSpeed -= Time.deltaTime;
         }
 
-        animator.SetFloat("Horizontal", transform.position.x);
-        animator.SetFloat("Vertical", transform.position.y);
+        animator.SetFloat("Horizontal", player.position.x - transform.position.x);
+        animator.SetFloat("Vertical", player.position.y - transform.position.y);
         animator.SetFloat("Speed", transform.position.magnitude);
 
         //Melee iskuscripti

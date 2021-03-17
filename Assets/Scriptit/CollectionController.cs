@@ -31,21 +31,21 @@ public class CollectionController : MonoBehaviour
         if (collision.tag == "Player" && id == 1)
         {
             PlayerController.collectedAmount++;
-            PlayerController.dmgUpdate++;
+            PlayerController.dmgUpdate = PlayerController.dmgUpdate + (PlayerController.dmgUpdate / 5);
             Destroy(gameObject);
         }
         //Item 3
         if (collision.tag == "Player" && id == 2)
         {
             PlayerController.collectedAmount++;
-            PlayerController.speedUpdate++;
+            PlayerController.speedUpdate = PlayerController.speedUpdate + (PlayerController.speedUpdate / 5);
             Destroy(gameObject);
         }
         //Item 4
         if (collision.tag == "Player" && id == 3)
         {
             PlayerController.collectedAmount++;
-            PlayerController.attSpeedUpdate = PlayerController.attSpeedUpdate - (PlayerController.attSpeedUpdate / 10);
+            PlayerController.attSpeedUpdate = PlayerController.attSpeedUpdate - (PlayerController.attSpeedUpdate / 7);
             Destroy(gameObject);
         }
     }
