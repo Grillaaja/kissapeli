@@ -19,6 +19,7 @@ public class ShopController : MonoBehaviour
         {
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
+            PlayerController.explosiveshot = true;
         }
         else
         {
@@ -70,14 +71,12 @@ public class ShopController : MonoBehaviour
         if (PlayerController.visitedshop == false && PlayerController.visitedboss == false)
         {
             player.transform.Translate(-10.23f, 15.94f, 0);
-            PlayerController.visitedshop = true;
         }
         else if (PlayerController.visitedshop == true && PlayerController.visitedboss == false)
         {
             player.transform.Translate(33.51f, -73.75f, 0);
-            PlayerController.visitedshop = false;
-            PlayerController.visitedboss = true;
-        }else if (PlayerController.visitedboss == true && PlayerController.visitedshop == false)
+        }
+        else if (PlayerController.visitedboss == true && PlayerController.visitedshop == false)
         {
             player.transform.Translate(-31.4f, 25.16f, 0);
             PlayerController.visitedboss = false;

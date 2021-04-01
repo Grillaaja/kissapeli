@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     public static int raha = 0;
     public static bool poisonammo = false;
     public static bool tripleshot = false;
+    public static bool explosiveshot = false;
     public static bool visitedshop = false;
     public static bool visitedboss = false;
     public static bool victory = false;
@@ -116,6 +117,19 @@ public class PlayerController : MonoBehaviour
         hpUpdate -= amount;
 
         StartCoroutine(BecomeTemporarilyInvincible());
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Shop")
+        {
+            visitedshop = true;
+        }
+        else if( collision.tag == "BossRoom")
+        {
+            visitedshop = false;
+            visitedboss = true;
+        }
     }
 
 }
