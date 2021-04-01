@@ -12,9 +12,9 @@ public class EnemyController : MonoBehaviour
     public float revealDistance;
     private float attackSpeed;
     public float startAttackSpeed;
-    public int hp;
-    public int hpupdate = 0;
-    public int maxhp;
+    public float hp;
+    public float hpupdate = 0;
+    public float maxhp;
     public float attackRange;
 
     //Komponentit
@@ -138,7 +138,7 @@ public class EnemyController : MonoBehaviour
     }
 
     //Healthbarin toiminta
-    public void TakeHit(int dmg)
+    public void TakeHit(float dmg)
     {
         hpupdate = hpupdate - dmg;
         healthbar.SetHealth(hpupdate, maxhp);

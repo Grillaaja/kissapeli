@@ -14,7 +14,7 @@ public class EnemyHealthbar : MonoBehaviour
     {
     }
 
-    public void SetHealth(int health, int maxhealth)
+    public void SetHealth(float health, float maxhealth)
     {
         slider.gameObject.SetActive(health < maxhealth);
         slider.value = health;
