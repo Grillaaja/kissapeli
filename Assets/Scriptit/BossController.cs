@@ -20,6 +20,7 @@ public class BossController : MonoBehaviour
     float elapsed = 0f;
     float attackStyleTime = 0f;
     private bool normalAttack = true;
+    private int critical;
 
     //Komponentteja
     public GameObject projectile1;
@@ -42,7 +43,7 @@ public class BossController : MonoBehaviour
     }
     void Update()
     {
-
+        critical = Random.Range(0, 10);
         //Animaatio
         animator.SetFloat("Horizontal", player.position.x - transform.position.x);
         animator.SetFloat("Vertical", player.position.y - transform.position.y);
@@ -122,8 +123,18 @@ public class BossController : MonoBehaviour
 
     public void TakeHit(int dmg)
     {
-        hp = hp - dmg;
-        healthbar.SetHealth(hp);
+
+        if (PlayerController.critical && critical > 8)
+        {
+            hp = hp - dmg * 4;
+            healthbar.SetHealth(hp);
+            Debug.Log("Crit!");
+        }
+        else
+        {
+            hp = hp - dmg;
+            healthbar.SetHealth(hp);
+        }
 
     }
 }

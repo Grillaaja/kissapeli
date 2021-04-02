@@ -5,7 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-  public void PlayGame ()
+    public Animator transition;
+
+    private void Start()
+    {
+        transition.SetTrigger("Start");
+    }
+
+    public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
     float elapsed = 0f;
     public int ticks = 0;
     public static bool isThereAnyMeat = false;
+    private int critical; 
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        critical = Random.Range(0, 10);
         //Liikkumis, ja löytämis scripti, sekä ansan priorisointi
         if (!isThereAnyMeat) 
         {
@@ -140,8 +142,17 @@ public class EnemyController : MonoBehaviour
     //Healthbarin toiminta
     public void TakeHit(float dmg)
     {
-        hpupdate = hpupdate - dmg;
-        healthbar.SetHealth(hpupdate, maxhp);
+        if (PlayerController.critical && critical > 8)
+        {
+            hpupdate = hpupdate - dmg * 4;
+            healthbar.SetHealth(hpupdate, maxhp);
+            Debug.Log("Crit!");
+        }
+        else
+        {
+            hpupdate = hpupdate - dmg;
+            healthbar.SetHealth(hpupdate, maxhp);
+        }
     }
 
 

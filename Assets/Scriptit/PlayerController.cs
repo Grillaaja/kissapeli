@@ -29,14 +29,20 @@ public class PlayerController : MonoBehaviour
     public int dmg;
     public static int dmgUpdate = 0;
     public static int maxHp = 0;
+    public static int raha = 0;
 
     //Aikoja yms
     private float invincibilityTime = 0.5f;
     private bool isInvincible = false;
-    public static int raha = 0;
+    
+
+    //Ammus-modifierit
     public static bool poisonammo = false;
     public static bool tripleshot = false;
     public static bool explosiveshot = false;
+    public static bool critical = false;
+
+    //Teleporttien toiminta
     public static bool visitedshop = false;
     public static bool visitedboss = false;
     public static bool victory = false;
@@ -68,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
         //Alustetaan pelaajan nopeus "Speed" statsista ja näkyvät UI tekstit
         rgbody.velocity = new Vector3(hor * speedUpdate, ver * speedUpdate, 0);
-        healtit.text = "HP = " + hpUpdate;
+        healtit.text = hpUpdate + "/" + hp;
         damaget.text = "DMG = " + dmgUpdate;
         speedit.text = "MS = " + speedUpdate;
         aspeedit.text = "AS = " + attSpeedUpdate;
