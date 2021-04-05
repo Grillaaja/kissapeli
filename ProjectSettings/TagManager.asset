@@ -7,6 +7,16 @@ TagManager:
   - Enemy
   - Item
   - Projectile
+  - Wall
+  - Dummy
+  - Boss
+  - Shop
+  - BossRoom
+  - PoisonInventory
+  - PowderInventory
+  - TripleInventory
+  - BaitInventory
+  - CollarInventory
   layers:
   - Default
   - TransparentFX
