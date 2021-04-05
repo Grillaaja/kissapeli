@@ -102,6 +102,26 @@ public class EnemyController : MonoBehaviour
         {
             attackSpeed -= Time.deltaTime;
         }
+        //Mage-ammuntascripti
+        if (attackSpeed <= 0 && id == 2 && Vector2.Distance(transform.position, player.position) < revealDistance)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile, transform.position, Quaternion.identity);
+            attackSpeed = startAttackSpeed;
+
+        }
+        else
+        {
+            attackSpeed -= Time.deltaTime;
+        }
 
         animator.SetFloat("Horizontal", player.position.x - transform.position.x);
         animator.SetFloat("Vertical", player.position.y - transform.position.y);

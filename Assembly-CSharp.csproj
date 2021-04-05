@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scriptit\GameOver.cs" />
     <Compile Include="Assets\Scriptit\HealthBar.cs" />
     <Compile Include="Assets\Scriptit\Interactable.cs" />
+    <Compile Include="Assets\Scriptit\MageProjectile.cs" />
     <Compile Include="Assets\Scriptit\MainMenu.cs" />
     <Compile Include="Assets\Scriptit\Pause.cs" />
     <Compile Include="Assets\Scriptit\PlayerController.cs" />

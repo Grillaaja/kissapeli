@@ -14,6 +14,8 @@ public class ShopController : MonoBehaviour
     private Image poisonImg;
     private Image collarImg;
 
+    public GameObject teleportDestination;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -100,18 +102,6 @@ public class ShopController : MonoBehaviour
 
     public void Teleport()
     {
-        if (PlayerController.visitedshop == false && PlayerController.visitedboss == false)
-        {
-            player.transform.Translate(-10.23f, 15.94f, 0);
-        }
-        else if (PlayerController.visitedshop == true && PlayerController.visitedboss == false)
-        {
-            player.transform.Translate(33.51f, -73.75f, 0);
-        }
-        else if (PlayerController.visitedboss == true && PlayerController.visitedshop == false)
-        {
-            player.transform.Translate(-31.4f, 25.16f, 0);
-            PlayerController.visitedboss = false;
-        }
+        player.transform.position = teleportDestination.transform.position;
     }
 }

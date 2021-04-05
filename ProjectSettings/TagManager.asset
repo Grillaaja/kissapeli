@@ -17,6 +17,7 @@ TagManager:
   - TripleInventory
   - BaitInventory
   - CollarInventory
+  - MainRoom
   layers:
   - Default
   - TransparentFX

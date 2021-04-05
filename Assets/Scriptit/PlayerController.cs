@@ -136,6 +136,11 @@ public class PlayerController : MonoBehaviour
             visitedshop = false;
             visitedboss = true;
         }
+        else if (collision.tag == "MainRoom")
+        {
+            visitedshop = false;
+            visitedboss = false;
+        }
     }
 
 }

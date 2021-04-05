@@ -55,7 +55,10 @@ public class PlayerProjectile : MonoBehaviour
             //vihun hp pois
             enemy = collision.gameObject;
             script = enemy.GetComponent<EnemyController>();
-            script.TakeHit(PlayerController.dmgUpdate);
+            if (!PlayerController.explosiveshot)
+            {
+                script.TakeHit(PlayerController.dmgUpdate);
+            }
             if (PlayerController.poisonammo)
             {
                 script.ticks = 0;
@@ -64,7 +67,7 @@ public class PlayerProjectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile" || collision.tag == "Dummy" || collision.tag == "BossRoom" || collision.tag == "Shop")
+        else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile" || collision.tag == "Dummy" || collision.tag == "BossRoom" || collision.tag == "Shop" || collision.tag == "MainRoom")
         {
             //eimitää
         }
