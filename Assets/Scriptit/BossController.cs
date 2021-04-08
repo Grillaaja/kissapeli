@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
@@ -87,6 +88,7 @@ public class BossController : MonoBehaviour
             bossmusic.enabled = false;
             PlayerController.victory = true;
             Destroy(gameObject);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
         }
         //Ampumistyylin vaihtuminen
