@@ -13,6 +13,9 @@ public class ShopController : MonoBehaviour
     private Image baitImg;
     private Image poisonImg;
     private Image collarImg;
+    private Image potionImg;
+    private Text baitText;
+    private Text potionText;
 
     public GameObject teleportDestination;
 
@@ -25,6 +28,9 @@ public class ShopController : MonoBehaviour
         poisonImg = GameObject.FindGameObjectWithTag("PoisonInventory").GetComponent<Image>(); ;
         baitImg = GameObject.FindGameObjectWithTag("BaitInventory").GetComponent<Image>();
         collarImg = GameObject.FindGameObjectWithTag("CollarInventory").GetComponent<Image>();
+        potionImg = GameObject.FindGameObjectWithTag("PotionInventory").GetComponent<Image>();
+        potionText = GameObject.FindGameObjectWithTag("PotionText").GetComponent<Text>();
+        baitText = GameObject.FindGameObjectWithTag("BaitText").GetComponent<Text>();
     }
     public void PickGunpowder()
     {
@@ -77,6 +83,7 @@ public class ShopController : MonoBehaviour
             BaitScript.hasBait = true;
             Destroy(gameObject);
             baitImg.enabled = true;
+            baitText.enabled = true;
         }
         else
         {
@@ -92,6 +99,22 @@ public class ShopController : MonoBehaviour
             Destroy(gameObject);
             PlayerController.critical = true;
             collarImg.enabled = true;
+        }
+        else
+        {
+            Debug.Log("Not enough Fish!");
+        }
+    }
+
+    public void PickPotion()
+    {
+        if (PlayerController.raha >= hinta)
+        {
+            PlayerController.raha = PlayerController.raha - hinta;
+            PotionScript.hasPotion = true;
+            Destroy(gameObject);
+            potionImg.enabled = true;
+            potionText.enabled = true;
         }
         else
         {

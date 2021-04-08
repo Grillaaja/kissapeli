@@ -144,7 +144,11 @@ public class EnemyController : MonoBehaviour
         }
 
         //Tuhoutuminen
-        if(hpupdate <= 0)
+        if(hpupdate <= 0 && id == 2)
+        {
+            Destroy(gameObject);
+            PlayerController.raha = PlayerController.raha + 9000;
+        }else if (hpupdate <= 0 )
         {
             Destroy(gameObject);
             PlayerController.raha = PlayerController.raha + 10;

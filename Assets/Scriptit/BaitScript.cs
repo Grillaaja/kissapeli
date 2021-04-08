@@ -12,11 +12,13 @@ public class BaitScript : MonoBehaviour
     private float timer;
     private bool timeStarted = false;
     private Image baitImg;
+    private Text baitText;
 
     // Start is called before the first frame update
     void Start()
     {
         baitImg = GameObject.FindGameObjectWithTag("BaitInventory").GetComponent<Image>();
+        baitText = GameObject.FindGameObjectWithTag("BaitText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class BaitScript : MonoBehaviour
                 Instantiate(meat, player.position, player.rotation);
                 timeStarted = true;
                 baitImg.enabled = false;
+                baitText.enabled = false;
             }
         }
         if (timeStarted)
