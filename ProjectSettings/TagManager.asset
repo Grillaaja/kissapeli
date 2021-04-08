@@ -18,6 +18,9 @@ TagManager:
   - BaitInventory
   - CollarInventory
   - MainRoom
+  - PotionInventory
+  - BaitText
+  - PotionText
   layers:
   - Default
   - TransparentFX
