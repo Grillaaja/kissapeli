@@ -18,9 +18,9 @@ TagManager:
   - BaitInventory
   - CollarInventory
   - MainRoom
-  - PotionInventory
-  - BaitText
-  - PotionText
+  - SpawnPoint
+  - Rooms
+  - TPDestination
   layers:
   - Default
   - TransparentFX

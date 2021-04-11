@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9b803b3f187d8514480b86e91d1e6f08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,7 +113,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   sp: {fileID: 1804373402302190325}
-  interactText: {fileID: 0}
   id: 0
   hinta: 5
 --- !u!58 &1804373402302190327
@@ -145,4 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hinta: 5
-  conditionalText: {fileID: 0}
+  player: {fileID: 0}
+  teleportDestination: {fileID: 0}
