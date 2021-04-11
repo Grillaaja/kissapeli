@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 01e74633df0011341827a1e99b3d0790, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -113,6 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hinta: 2
+  player: {fileID: 0}
+  teleportDestination: {fileID: 0}
 --- !u!114 &3792028770320616298
 MonoBehaviour:
   m_ObjectHideFlags: 0
