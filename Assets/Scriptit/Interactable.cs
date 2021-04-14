@@ -70,6 +70,11 @@ public class Interactable : MonoBehaviour
             isInRange = true;
             Debug.Log("Player now in range");
         }
+        else if (collision.tag == "Player" && id == 7)
+        {
+            isInRange = true;
+            Debug.Log("Player now in range");
+        }
     }
 
     public void OnTriggerExit2D(Collider2D collision)

@@ -13,6 +13,7 @@ public class PlayerProjectile : MonoBehaviour
     BossController bscript;
     public SpriteRenderer sp;
     GameObject boss;
+    public GameObject explosion;
     void Start()
     {
         
@@ -64,7 +65,12 @@ public class PlayerProjectile : MonoBehaviour
                 script.ticks = 0;
                 script.isPoisoned = true;
             }
+            if (PlayerController.explosiveshot)
+            {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+            }
             Destroy(gameObject);
+
         }
 
         else if (collision.tag == "Player" || collision.tag == "Item" || collision.tag == "Projectile" || collision.tag == "Dummy" || collision.tag == "BossRoom" || collision.tag == "Shop" || collision.tag == "MainRoom")
@@ -83,11 +89,19 @@ public class PlayerProjectile : MonoBehaviour
                 bscript.ticks = 0;
                 bscript.isPoisoned = true;
             }
+            if (PlayerController.explosiveshot)
+            {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+            }
             Destroy(gameObject);
         }
 
         else
         {
+            if (PlayerController.explosiveshot)
+            {
+                Instantiate(explosion, gameObject.transform.position, gameObject.transform.rotation);
+            }
             Destroy(gameObject);
         }
     }
