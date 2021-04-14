@@ -21,6 +21,9 @@ TagManager:
   - SpawnPoint
   - Rooms
   - TPDestination
+  - PotionInventory
+  - BaitText
+  - PotionText
   layers:
   - Default
   - TransparentFX

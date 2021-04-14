@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
         healtit.text = hpUpdate + "/" + hp;
         damaget.text = "DMG = " + dmgUpdate;
         speedit.text = "MS = " + speedUpdate;
-        aspeedit.text = "AS = " + attSpeedUpdate;
+        aspeedit.text = "AS = " + Mathf.Round(attSpeedUpdate * 100f) / 100f;
         rahat.text = "" + raha;
         healthBar.SetMaxHealth(hp);
         healthBar.SetHealth(hpUpdate);
