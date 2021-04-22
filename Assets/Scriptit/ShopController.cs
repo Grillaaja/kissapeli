@@ -67,7 +67,20 @@ public class ShopController : MonoBehaviour
         {
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
-            PlayerController.tripleshot = true;
+            if (PlayerController.tripleshot2)
+            {
+                PlayerController.tripleshot3 = true;
+                PlayerController.tripleshot2 = false;
+            }
+            if (PlayerController.tripleshot)
+            {
+                PlayerController.tripleshot2 = true;
+                PlayerController.tripleshot = false;
+            }
+            if (!PlayerController.tripleshot)
+            {
+                PlayerController.tripleshot = true;
+            }
             tripleImg.enabled = true;
         }
         else
@@ -121,6 +134,12 @@ public class ShopController : MonoBehaviour
         {
             Debug.Log("Not enough Fish!");
         }
+    }
+    public void PickMac()
+    {
+        PlayerController.attSpeedUpdate = 0.03f;
+        PlayerController.dmgUpdate = PlayerController.dmgUpdate / 5;
+        Destroy(gameObject);
     }
 
     public void Teleport()

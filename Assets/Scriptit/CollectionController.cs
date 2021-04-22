@@ -31,7 +31,14 @@ public class CollectionController : MonoBehaviour
         if (collision.tag == "Player" && id == 1)
         {
             PlayerController.collectedAmount++;
-            PlayerController.dmgUpdate = PlayerController.dmgUpdate + (PlayerController.dmgUpdate / 5);
+            if((PlayerController.dmgUpdate / 5) < 1)
+            {
+                PlayerController.dmgUpdate++;
+            }
+            else
+            {
+                PlayerController.dmgUpdate = PlayerController.dmgUpdate + (PlayerController.dmgUpdate / 5);
+            }
             Destroy(gameObject);
         }
         //Item 3

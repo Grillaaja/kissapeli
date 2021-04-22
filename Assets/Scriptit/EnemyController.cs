@@ -16,6 +16,7 @@ public class EnemyController : MonoBehaviour
     public float hpupdate = 0;
     public float maxhp;
     public float attackRange;
+    public float splashDistance = 4.0f;
 
     //Komponentit
     public GameObject projectile;
@@ -127,8 +128,41 @@ public class EnemyController : MonoBehaviour
         animator.SetFloat("Vertical", player.position.y - transform.position.y);
         animator.SetFloat("Speed", transform.position.magnitude);
 
-        //Melee iskuscripti
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        //Pommirotan räjähdysmekaniikka
+
+        if (distanceToPlayer < (splashDistance -1) && id == 3)
+        {
+            if (splashDistance > 0)
+            {
+                var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashDistance);
+
+                foreach (var hitCollider in hitColliders)
+                {
+                    var vihu = hitCollider.GetComponent<EnemyController>();
+                    var pelaaja = hitCollider.GetComponent<PlayerController>();
+                    if (vihu)
+                    {
+                        var closestPoint = hitCollider.ClosestPoint(transform.position);
+                        var distance = Vector3.Distance(closestPoint, transform.position);
+
+                        var dmgPercentage = Mathf.InverseLerp(splashDistance, 0, distance);
+                        vihu.TakeHit(dmgPercentage * 50);
+                    }
+                    if (pelaaja)
+                    {
+                        var closestPoint = hitCollider.ClosestPoint(transform.position);
+                        var distance = Vector3.Distance(closestPoint, transform.position);
+
+                        pelaaja.LoseHealth(10);
+                    }
+                }
+                Destroy(gameObject);
+            }
+        }
+
+        //Melee iskuscripti
         if (distanceToPlayer < attackRange && id == 1)
         {
             if (attackSpeed <= 0)
