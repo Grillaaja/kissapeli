@@ -10,7 +10,6 @@ public class Interactable : MonoBehaviour
     public UnityEvent interactAction;
     public SpriteRenderer sp;
     public int id;
-    public int hinta;
 
     void Start()
     {
