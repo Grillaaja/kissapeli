@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
-  indicator: {fileID: 1904694658533285148, guid: 1e4fa994f28c10441916fbac304feff1,
+  indicator: {fileID: 6957263661899344033, guid: e5037101d40cc3b45867014ee01ddbd1,
     type: 3}
 --- !u!61 &2495688848145068718
 BoxCollider2D:
