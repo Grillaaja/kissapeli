@@ -37,6 +37,10 @@ public class ShopController : MonoBehaviour
     {
         if (PlayerController.raha >= hinta)
         {
+            if (PlayerController.gunPowderKerroin <= 3)
+            {
+                PlayerController.gunPowderKerroin++;
+            }
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
             PlayerController.explosiveshot = true;
@@ -51,6 +55,10 @@ public class ShopController : MonoBehaviour
     {
         if (PlayerController.raha >= hinta)
         {
+            if(PlayerController.ratPoisonKerroin <= 3)
+            {
+                PlayerController.ratPoisonKerroin++;
+            }
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
             PlayerController.poisonammo = true;
@@ -109,6 +117,10 @@ public class ShopController : MonoBehaviour
     {
         if (PlayerController.raha >= hinta)
         {
+            if (PlayerController.collarKerroin <= 3)
+            {
+                PlayerController.collarKerroin++;
+            }
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
             PlayerController.critical = true;

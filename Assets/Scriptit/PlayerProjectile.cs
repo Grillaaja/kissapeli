@@ -37,7 +37,7 @@ public class PlayerProjectile : MonoBehaviour
             //Räjähtäviin panoksiin liittyvä logiikka
             if (splashDistance > 0 && PlayerController.explosiveshot)
             {
-                var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashDistance);
+                var hitColliders = Physics2D.OverlapCircleAll(transform.position, (splashDistance * PlayerController.gunPowderKerroin));
 
                 foreach (var hitCollider in hitColliders)
                 {
@@ -47,7 +47,7 @@ public class PlayerProjectile : MonoBehaviour
                         var closestPoint = hitCollider.ClosestPoint(transform.position);
                         var distance = Vector3.Distance(closestPoint, transform.position);
 
-                        var dmgPercentage = Mathf.InverseLerp(splashDistance, 0, distance);
+                        var dmgPercentage = Mathf.InverseLerp((splashDistance * PlayerController.gunPowderKerroin), 0, distance);
                         vihu.TakeHit(dmgPercentage * PlayerController.dmgUpdate);
                     }
                 }

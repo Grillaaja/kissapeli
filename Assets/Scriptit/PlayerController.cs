@@ -44,6 +44,11 @@ public class PlayerController : MonoBehaviour
     public static bool explosiveshot = false;
     public static bool critical = false;
 
+    //Itemeiden taso-kertoimet
+    public static int collarKerroin = 0;
+    public static int gunPowderKerroin = 0;
+    public static int ratPoisonKerroin = 0;
+
     //Teleporttien toiminta
     public static bool visitedshop = false;
     public static bool visitedboss = false;
@@ -122,7 +127,7 @@ public class PlayerController : MonoBehaviour
     public void LoseHealth(int amount)
     {
         if (isInvincible) return;
-
+        animator.SetTrigger("TakeHit");
         hpUpdate -= amount;
 
         StartCoroutine(BecomeTemporarilyInvincible());

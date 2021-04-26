@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scriptit\CatTreat.cs" />
     <Compile Include="Assets\Scriptit\Chest.cs" />
     <Compile Include="Assets\Scriptit\CollectionController.cs" />
+    <Compile Include="Assets\Scriptit\Destroy.cs" />
     <Compile Include="Assets\Scriptit\EnemyController.cs" />
     <Compile Include="Assets\Scriptit\EnemyHealthbar.cs" />
     <Compile Include="Assets\Scriptit\ExplosionScript.cs" />

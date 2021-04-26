@@ -137,8 +137,11 @@ MonoBehaviour:
   splashDistance: 4
   projectile: {fileID: 763590581212117290, guid: 13a840e74c465df4286865a9cef062da,
     type: 3}
+  critUi: {fileID: 336744283200292166, guid: e2b083fb640d87b40ab304ff6f813c24, type: 3}
   player: {fileID: 0}
   animator: {fileID: 8876889092676233063}
+  explosion: {fileID: 5266765264564280601, guid: 21a17226fac731a40b0c1b0bdfbb501b,
+    type: 3}
   meat: {fileID: 1804373402302190321, guid: 3509222604c886543bc5450ccc89ded0, type: 3}
   healthbar: {fileID: 5525533615886287744}
   id: 3

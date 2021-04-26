@@ -24,6 +24,7 @@ public class BossController : MonoBehaviour
     private int critical;
 
     //Komponentteja
+    public GameObject critUi;
     public GameObject projectile1;
     public GameObject projectile2;
     PlayerController playerscript;
@@ -114,7 +115,7 @@ public class BossController : MonoBehaviour
             if (elapsed >= 1f)
             {
                 elapsed = elapsed % 1f;
-                TakeHit(8);
+                TakeHit(8 * PlayerController.ratPoisonKerroin);
                 ticks++;
             }
         }
@@ -128,8 +129,9 @@ public class BossController : MonoBehaviour
 
         if (PlayerController.critical && critical > 8)
         {
-            hp = hp - dmg * 4;
+            hp = hp - (dmg * 4) * PlayerController.collarKerroin;
             healthbar.SetHealth(hp);
+            Instantiate(critUi, transform.position, transform.rotation);
             Debug.Log("Crit!");
         }
         else

@@ -20,11 +20,13 @@ public class EnemyController : MonoBehaviour
 
     //Komponentit
     public GameObject projectile;
+    public GameObject critUi;
     public Transform player;
     private AudioSource Boom;
     PlayerController playerscript;
     GameObject playerref;
     public Animator animator;
+    public GameObject explosion;
     public GameObject meat;
 
     //UI
@@ -87,7 +89,7 @@ public class EnemyController : MonoBehaviour
             if (elapsed >= 1f)
             {
                 elapsed = elapsed % 1f;
-                TakeHit(8);
+                TakeHit(8 * PlayerController.ratPoisonKerroin);
                 ticks++;
             }
         }
@@ -136,6 +138,8 @@ public class EnemyController : MonoBehaviour
         {
             if (splashDistance > 0)
             {
+                Instantiate(explosion, transform.position, transform.rotation);
+                Destroy(explosion, 5f);
                 var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashDistance);
 
                 foreach (var hitCollider in hitColliders)
@@ -155,7 +159,7 @@ public class EnemyController : MonoBehaviour
                         var closestPoint = hitCollider.ClosestPoint(transform.position);
                         var distance = Vector3.Distance(closestPoint, transform.position);
 
-                        pelaaja.LoseHealth(10);
+                        pelaaja.LoseHealth(7);
                     }
                 }
                 Destroy(gameObject);
@@ -169,6 +173,7 @@ public class EnemyController : MonoBehaviour
             {
                 playerscript.LoseHealth(5);
                 Boom.Play();
+                animator.SetTrigger("Punch");
                 attackSpeed = startAttackSpeed;
             }
             else
@@ -198,8 +203,9 @@ public class EnemyController : MonoBehaviour
     {
         if (PlayerController.critical && critical > 8)
         {
-            hpupdate = hpupdate - dmg * 4;
+            hpupdate = hpupdate - (dmg * 4) * PlayerController.collarKerroin;
             healthbar.SetHealth(hpupdate, maxhp);
+            Instantiate(critUi, transform.position, transform.rotation);
             Debug.Log("Crit!");
         }
         else
