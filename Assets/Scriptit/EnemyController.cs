@@ -16,14 +16,17 @@ public class EnemyController : MonoBehaviour
     public float hpupdate = 0;
     public float maxhp;
     public float attackRange;
+    public float splashDistance = 4.0f;
 
     //Komponentit
     public GameObject projectile;
+    public GameObject critUi;
     public Transform player;
     private AudioSource Boom;
     PlayerController playerscript;
     GameObject playerref;
     public Animator animator;
+    public GameObject explosion;
     public GameObject meat;
 
     //UI
@@ -86,7 +89,7 @@ public class EnemyController : MonoBehaviour
             if (elapsed >= 1f)
             {
                 elapsed = elapsed % 1f;
-                TakeHit(8);
+                TakeHit(8 * PlayerController.ratPoisonKerroin);
                 ticks++;
             }
         }
@@ -127,14 +130,50 @@ public class EnemyController : MonoBehaviour
         animator.SetFloat("Vertical", player.position.y - transform.position.y);
         animator.SetFloat("Speed", transform.position.magnitude);
 
-        //Melee iskuscripti
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+        //Pommirotan räjähdysmekaniikka
+
+        if (distanceToPlayer < (splashDistance -1) && id == 3)
+        {
+            if (splashDistance > 0)
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+                Destroy(explosion, 5f);
+                var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashDistance);
+
+                foreach (var hitCollider in hitColliders)
+                {
+                    var vihu = hitCollider.GetComponent<EnemyController>();
+                    var pelaaja = hitCollider.GetComponent<PlayerController>();
+                    if (vihu)
+                    {
+                        var closestPoint = hitCollider.ClosestPoint(transform.position);
+                        var distance = Vector3.Distance(closestPoint, transform.position);
+
+                        var dmgPercentage = Mathf.InverseLerp(splashDistance, 0, distance);
+                        vihu.TakeHit(dmgPercentage * 50);
+                    }
+                    if (pelaaja)
+                    {
+                        var closestPoint = hitCollider.ClosestPoint(transform.position);
+                        var distance = Vector3.Distance(closestPoint, transform.position);
+
+                        pelaaja.LoseHealth(7);
+                    }
+                }
+                Destroy(gameObject);
+            }
+        }
+
+        //Melee iskuscripti
         if (distanceToPlayer < attackRange && id == 1)
         {
             if (attackSpeed <= 0)
             {
                 playerscript.LoseHealth(5);
                 Boom.Play();
+                animator.SetTrigger("Punch");
                 attackSpeed = startAttackSpeed;
             }
             else
@@ -164,8 +203,9 @@ public class EnemyController : MonoBehaviour
     {
         if (PlayerController.critical && critical > 8)
         {
-            hpupdate = hpupdate - dmg * 4;
+            hpupdate = hpupdate - (dmg * 4) * PlayerController.collarKerroin;
             healthbar.SetHealth(hpupdate, maxhp);
+            Instantiate(critUi, transform.position, transform.rotation);
             Debug.Log("Crit!");
         }
         else

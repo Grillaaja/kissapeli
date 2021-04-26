@@ -7,9 +7,11 @@ public class CollectionController : MonoBehaviour
 
     //Alustetaan tavaran id
     public int id;
+    public GameObject indicator;
+    private Transform player;
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -23,6 +25,7 @@ public class CollectionController : MonoBehaviour
         //Item 1
         if (collision.tag == "Player" && id == 0)
         {
+            Instantiate(indicator, player.position, player.rotation);
             PlayerController.collectedAmount++;
             PlayerController.hpUpdate++;
             Destroy(gameObject);
@@ -30,13 +33,22 @@ public class CollectionController : MonoBehaviour
         //Item 2
         if (collision.tag == "Player" && id == 1)
         {
+            Instantiate(indicator, player.position, player.rotation);
             PlayerController.collectedAmount++;
-            PlayerController.dmgUpdate = PlayerController.dmgUpdate + (PlayerController.dmgUpdate / 5);
+            if((PlayerController.dmgUpdate / 5) < 1)
+            {
+                PlayerController.dmgUpdate++;
+            }
+            else
+            {
+                PlayerController.dmgUpdate = PlayerController.dmgUpdate + (PlayerController.dmgUpdate / 5);
+            }
             Destroy(gameObject);
         }
         //Item 3
         if (collision.tag == "Player" && id == 2)
         {
+            Instantiate(indicator, player.position, player.rotation);
             PlayerController.collectedAmount++;
             PlayerController.speedUpdate = PlayerController.speedUpdate + (PlayerController.speedUpdate / 5);
             Destroy(gameObject);
@@ -44,6 +56,7 @@ public class CollectionController : MonoBehaviour
         //Item 4
         if (collision.tag == "Player" && id == 3)
         {
+            Instantiate(indicator, player.position, player.rotation);
             PlayerController.collectedAmount++;
             PlayerController.attSpeedUpdate = PlayerController.attSpeedUpdate - (PlayerController.attSpeedUpdate / 7);
             Destroy(gameObject);

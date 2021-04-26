@@ -39,8 +39,15 @@ public class PlayerController : MonoBehaviour
     //Ammus-modifierit
     public static bool poisonammo = false;
     public static bool tripleshot = false;
+    public static bool tripleshot2 = false;
+    public static bool tripleshot3 = false;
     public static bool explosiveshot = false;
     public static bool critical = false;
+
+    //Itemeiden taso-kertoimet
+    public static int collarKerroin = 0;
+    public static int gunPowderKerroin = 0;
+    public static int ratPoisonKerroin = 0;
 
     //Teleporttien toiminta
     public static bool visitedshop = false;
@@ -67,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         //Alustetaan X ja Y akseleiden liikkumispainikkeet
         attSpeed = attSpeedUpdate;
         float hor = Input.GetAxis("Horizontal");
@@ -119,7 +127,7 @@ public class PlayerController : MonoBehaviour
     public void LoseHealth(int amount)
     {
         if (isInvincible) return;
-
+        animator.SetTrigger("TakeHit");
         hpUpdate -= amount;
 
         StartCoroutine(BecomeTemporarilyInvincible());
@@ -140,6 +148,19 @@ public class PlayerController : MonoBehaviour
         {
             visitedshop = false;
             visitedboss = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (tripleshot2)
+        {
+            tripleshot = false;
+        }
+        if (tripleshot3)
+        {
+            tripleshot2 = false;
+            tripleshot = false;
         }
     }
 

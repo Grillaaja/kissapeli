@@ -37,6 +37,10 @@ public class ShopController : MonoBehaviour
     {
         if (PlayerController.raha >= hinta)
         {
+            if (PlayerController.gunPowderKerroin <= 3)
+            {
+                PlayerController.gunPowderKerroin++;
+            }
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
             PlayerController.explosiveshot = true;
@@ -51,6 +55,10 @@ public class ShopController : MonoBehaviour
     {
         if (PlayerController.raha >= hinta)
         {
+            if(PlayerController.ratPoisonKerroin <= 3)
+            {
+                PlayerController.ratPoisonKerroin++;
+            }
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
             PlayerController.poisonammo = true;
@@ -67,7 +75,20 @@ public class ShopController : MonoBehaviour
         {
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
-            PlayerController.tripleshot = true;
+            if (PlayerController.tripleshot2)
+            {
+                PlayerController.tripleshot3 = true;
+                PlayerController.tripleshot2 = false;
+            }
+            if (PlayerController.tripleshot)
+            {
+                PlayerController.tripleshot2 = true;
+                PlayerController.tripleshot = false;
+            }
+            if (!PlayerController.tripleshot)
+            {
+                PlayerController.tripleshot = true;
+            }
             tripleImg.enabled = true;
         }
         else
@@ -96,6 +117,10 @@ public class ShopController : MonoBehaviour
     {
         if (PlayerController.raha >= hinta)
         {
+            if (PlayerController.collarKerroin <= 3)
+            {
+                PlayerController.collarKerroin++;
+            }
             PlayerController.raha = PlayerController.raha - hinta;
             Destroy(gameObject);
             PlayerController.critical = true;
@@ -121,6 +146,12 @@ public class ShopController : MonoBehaviour
         {
             Debug.Log("Not enough Fish!");
         }
+    }
+    public void PickMac()
+    {
+        PlayerController.attSpeedUpdate = 0.03f;
+        PlayerController.dmgUpdate = PlayerController.dmgUpdate / 5;
+        Destroy(gameObject);
     }
 
     public void Teleport()

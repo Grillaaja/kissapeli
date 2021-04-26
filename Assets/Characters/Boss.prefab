@@ -105,6 +105,7 @@ MonoBehaviour:
   victory: {fileID: 0}
   isPoisoned: 0
   ticks: 0
+  critUi: {fileID: 336744283200292166, guid: e2b083fb640d87b40ab304ff6f813c24, type: 3}
   projectile1: {fileID: 763590581212117290, guid: 17c5ba224d1c6ba4a92b2de1e482a9d0,
     type: 3}
   projectile2: {fileID: 763590581212117290, guid: 94eac06aafb0b0d488fef942fabe675a,

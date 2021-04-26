@@ -23,8 +23,11 @@ public class AimController : MonoBehaviour
         Vector2 dir = cam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        Quaternion rotation2 = Quaternion.AngleAxis(angle -20, Vector3.forward);
-        Quaternion rotation3 = Quaternion.AngleAxis(angle +20, Vector3.forward);
+        Quaternion rotation2 = Quaternion.AngleAxis(angle - 180, Vector3.forward);
+        Quaternion rotation3 = Quaternion.AngleAxis(angle + 20, Vector3.forward);
+        Quaternion rotation4 = Quaternion.AngleAxis(angle - 20, Vector3.forward);
+        Quaternion rotation5 = Quaternion.AngleAxis(angle + 10, Vector3.forward);
+        Quaternion rotation6 = Quaternion.AngleAxis(angle - 10, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1000 * Time.deltaTime);
         if (Input.GetMouseButton(0))
         {
@@ -32,15 +35,32 @@ public class AimController : MonoBehaviour
             {
                 nextDmgEvent = Time.time + firerate;
                 Instantiate(projectile, firePoint.position, firePoint.rotation);
+                if (PlayerController.tripleshot3)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation3, 1000 * Time.deltaTime);
+                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation4, 1000 * Time.deltaTime);
+                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation5, 1000 * Time.deltaTime);
+                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation6, 1000 * Time.deltaTime);
+                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1000 * Time.deltaTime);
+                }
+                if (PlayerController.tripleshot2)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation3, 1000 * Time.deltaTime);
+                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation4, 1000 * Time.deltaTime);
+                    Instantiate(projectile, firePoint.position, firePoint.rotation);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1000 * Time.deltaTime);
+                }
                 if (PlayerController.tripleshot) 
                 { 
                     transform.rotation = Quaternion.Slerp(transform.rotation, rotation2, 1000 * Time.deltaTime);
                     Instantiate(projectile, firePoint.position, firePoint.rotation);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation3, 1000 * Time.deltaTime);
-                    Instantiate(projectile, firePoint.position, firePoint.rotation);
                     transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1000 * Time.deltaTime);
                 }
-
             }
         }
     }

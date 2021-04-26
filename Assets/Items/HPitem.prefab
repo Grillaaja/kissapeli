@@ -112,3 +112,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  indicator: {fileID: 8529075200864198474, guid: 4b30ee60b013e2a4da31648fff9931f4,
+    type: 3}

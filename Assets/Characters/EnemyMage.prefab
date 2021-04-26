@@ -222,8 +222,10 @@ MonoBehaviour:
   hpupdate: 0
   maxhp: 100
   attackRange: 0
+  splashDistance: 4
   projectile: {fileID: 763590581212117290, guid: c900937e8061aef4683b4dc3b88d8168,
     type: 3}
+  critUi: {fileID: 336744283200292166, guid: e2b083fb640d87b40ab304ff6f813c24, type: 3}
   player: {fileID: 0}
   animator: {fileID: 1945725612018214495}
   meat: {fileID: 1804373402302190321, guid: 3509222604c886543bc5450ccc89ded0, type: 3}

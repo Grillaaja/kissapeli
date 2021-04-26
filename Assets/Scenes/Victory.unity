@@ -3174,6 +3174,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7700011448968008216, guid: 868d9dd0ae0d1364fb964608448102e6,
         type: 3}
+      propertyPath: chestId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700011448968008216, guid: 868d9dd0ae0d1364fb964608448102e6,
+        type: 3}
       propertyPath: treasures.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -3242,6 +3247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345596244548883835, guid: 868d9dd0ae0d1364fb964608448102e6,
+        type: 3}
+      propertyPath: id
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8345596244548883838, guid: 868d9dd0ae0d1364fb964608448102e6,
         type: 3}
