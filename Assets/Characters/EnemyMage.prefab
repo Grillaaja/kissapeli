@@ -228,6 +228,7 @@ MonoBehaviour:
   critUi: {fileID: 336744283200292166, guid: e2b083fb640d87b40ab304ff6f813c24, type: 3}
   player: {fileID: 0}
   animator: {fileID: 1945725612018214495}
+  explosion: {fileID: 0}
   meat: {fileID: 1804373402302190321, guid: 3509222604c886543bc5450ccc89ded0, type: 3}
   healthbar: {fileID: 1945725612753007903}
   id: 2
@@ -263,7 +264,8 @@ AudioSource:
   m_GameObject: {fileID: 1945725612018214488}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b2137790348a8e84c8f1dbc6ca4fd173,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: d111ee6ab245d8f44b4873b38cd83e25, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2

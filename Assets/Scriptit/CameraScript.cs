@@ -7,6 +7,7 @@ public class CameraScript : MonoBehaviour
     public Vector3 offset;
     public AudioSource music;
     public AudioSource shopMusic;
+    public AudioSource bossMusic;
     private bool isChanged = false;
 
     // Start is called before the first frame update
@@ -21,7 +22,8 @@ public class CameraScript : MonoBehaviour
         transform.position = new Vector3(player.position.x + offset.x, player.position.y + offset.y, offset.z);
         if (PlayerController.visitedboss)
         {
-            music.enabled = true;
+            music.enabled = false;
+            bossMusic.enabled = true;
         }
         if (PlayerController.visitedboss && !isChanged)
         {

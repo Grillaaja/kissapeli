@@ -44,6 +44,17 @@ public class PlayerController : MonoBehaviour
     public static bool explosiveshot = false;
     public static bool critical = false;
 
+
+    public GameObject poison;
+    public GameObject triple;
+    public GameObject powder;
+    public GameObject collar;
+
+    Image poisonbg;
+    Image triplebg;
+    Image powderbg;
+    Image collarbg;
+
     //Itemeiden taso-kertoimet
     public static int collarKerroin = 0;
     public static int gunPowderKerroin = 0;
@@ -60,6 +71,34 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+
+        //Alustetaan staattiset pelin alkaessa uudestaan
+        collectedAmount = 0;
+        speedUpdate = 0;
+        attSpeedUpdate = 0;
+        dmgUpdate = 0;
+        critical = false;
+        explosiveshot = false;
+        tripleshot3 = false;
+        tripleshot2 = false;
+        tripleshot = false;
+        poisonammo = false;
+        ratPoisonKerroin = 0;
+        gunPowderKerroin = 0;
+        collarKerroin = 0;
+        visitedboss = false;
+        visitedshop = false;
+        victory = false;
+
+        poisonbg = poison.GetComponent<Image>();
+        triplebg = triple.GetComponent<Image>();
+        powderbg = powder.GetComponent<Image>();
+        collarbg = collar.GetComponent<Image>();
+
+        poisonbg.color = new Color32(20, 14, 14, 107);
+        triplebg.color = new Color32(20, 14, 14, 107);
+        powderbg.color = new Color32(20, 14, 14, 107);
+        collarbg.color = new Color32(20, 14, 14, 107);
         // Alustetaan pelaajan attribuutit
         hpUpdate = hp;
         attSpeedUpdate = attSpeed;
@@ -74,6 +113,41 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+
+        //UI hommia
+        if (tripleshot2)
+        {
+            triplebg.color = new Color32(255, 255, 255, 107);
+        }
+        if (tripleshot3)
+        {
+            triplebg.color = new Color32(253, 192, 0, 167);
+        }
+        if (ratPoisonKerroin == 2)
+        {
+            poisonbg.color = new Color32(255, 255, 255, 107);
+        }
+        if (ratPoisonKerroin == 3)
+        {
+            poisonbg.color = new Color32(253, 192, 0, 167);
+        }
+        if (gunPowderKerroin == 2)
+        {
+            powderbg.color = new Color32(255, 255, 255, 107);
+        }
+        if (gunPowderKerroin == 3)
+        {
+            powderbg.color = new Color32(253, 192, 0, 167);
+        }
+        if (collarKerroin == 2)
+        {
+            collarbg.color = new Color32(255, 255, 255, 107);
+        }
+        if (collarKerroin == 3)
+        {
+            collarbg.color = new Color32(253, 192, 0, 167);
+        }
 
         //Alustetaan X ja Y akseleiden liikkumispainikkeet
         attSpeed = attSpeedUpdate;

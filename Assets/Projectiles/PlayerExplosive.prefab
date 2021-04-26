@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2414547249913642014}
   - component: {fileID: 2414547249913642015}
+  - component: {fileID: -4432585657201142482}
   - component: {fileID: 2414547249913642000}
   m_Layer: 0
   m_Name: PlayerExplosive
@@ -51,6 +52,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-4432585657201142482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414547249913642001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1be86f62a876d84696db231770900f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &2414547249913642000
 SpriteRenderer:
   m_ObjectHideFlags: 0

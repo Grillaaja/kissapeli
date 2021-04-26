@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scriptit\ShopMusicEnabler.cs" />
     <Compile Include="Assets\Scriptit\Tasogeneraatio.cs" />
     <Compile Include="Assets\Scriptit\Victory.cs" />
+    <Compile Include="Assets\Scriptit\VolumeSettings.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
