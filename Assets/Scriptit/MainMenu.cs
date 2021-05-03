@@ -6,15 +6,30 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public Animator transition;
+    [SerializeField] GameObject controls;
+    private static bool controlsOpen = false;
 
     private void Start()
     {
         transition.SetTrigger("Start");
     }
 
+
+    void Update()
+    {
+        if (controlsOpen)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                controlsOpen = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+    }
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        controls.SetActive(true);
+        controlsOpen = true;
     }
 
   public void QuitGame ()

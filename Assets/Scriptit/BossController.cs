@@ -14,6 +14,8 @@ public class BossController : MonoBehaviour
     public GameObject health;
     public AudioSource bossmusic;
     public AudioSource victory;
+    public AudioSource gunshot;
+    public AudioSource thumper;
 
     //timereita yms
     public bool isPoisoned = false;
@@ -57,6 +59,7 @@ public class BossController : MonoBehaviour
             {
 
                 Instantiate(projectile1, transform.position, Quaternion.identity);
+                gunshot.Play();
                 attackSpeed = startAttackSpeed;
                 health.SetActive(true);
                 bossmusic.enabled = true;
@@ -72,6 +75,7 @@ public class BossController : MonoBehaviour
             if (attackSpeed <= 0 && PlayerController.visitedboss && true)
             {
                 Instantiate(projectile2, transform.position, Quaternion.identity);
+                thumper.Play();
                 attackSpeed = startAttackSpeed;
                 health.SetActive(true);
                 bossmusic.enabled = true;

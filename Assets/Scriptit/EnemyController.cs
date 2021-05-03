@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
     public float maxhp;
     public float attackRange;
     public float splashDistance = 4.0f;
+    public int rahaPalkinto = 10;
 
     //Komponentit
     public GameObject projectile;
@@ -28,6 +29,9 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
     public GameObject explosion;
     public GameObject meat;
+    public GameObject uzi;
+    public GameObject summonCircle;
+    private GameObject[] spawnp;
 
     //UI
     public EnemyHealthbar healthbar;
@@ -41,7 +45,9 @@ public class EnemyController : MonoBehaviour
     float elapsed = 0f;
     public int ticks = 0;
     public static bool isThereAnyMeat = false;
-    private int critical; 
+    private int critical;
+
+    int rand = 0;
 
     void Start()
     {
@@ -53,6 +59,8 @@ public class EnemyController : MonoBehaviour
         Boom = GetComponent<AudioSource>();
         hpupdate = hp;
         maxhp = hp;
+
+        spawnp = GameObject.FindGameObjectsWithTag("Spawnpoint");
     }
 
     void Update()
@@ -108,6 +116,7 @@ public class EnemyController : MonoBehaviour
         //Mage-ammuntascripti
         if (attackSpeed <= 0 && id == 2 && Vector2.Distance(transform.position, player.position) < revealDistance)
         {
+            Boom.Play();
             Instantiate(projectile, transform.position, Quaternion.identity);
             Instantiate(projectile, transform.position, Quaternion.identity);
             Instantiate(projectile, transform.position, Quaternion.identity);
@@ -139,7 +148,6 @@ public class EnemyController : MonoBehaviour
             if (splashDistance > 0)
             {
                 Instantiate(explosion, transform.position, transform.rotation);
-                Destroy(explosion, 5f);
                 var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashDistance);
 
                 foreach (var hitCollider in hitColliders)
@@ -166,6 +174,26 @@ public class EnemyController : MonoBehaviour
             }
         }
 
+        //Minibossi iskuscripti
+
+
+        if (id == 4 && distanceToPlayer < revealDistance)
+        {
+
+            if(attackSpeed <= 0)
+            {
+                animator.SetTrigger("Summon");
+                Instantiate(projectile, spawnp[rand].transform.position, spawnp[rand].transform.rotation);
+                attackSpeed = startAttackSpeed;
+                rand = Random.Range(0, 4);
+                Instantiate(summonCircle, spawnp[rand].transform.position, spawnp[rand].transform.rotation);
+            }
+            else
+            {
+                attackSpeed -= Time.deltaTime;
+            }
+        }
+
         //Melee iskuscripti
         if (distanceToPlayer < attackRange && id == 1)
         {
@@ -185,8 +213,14 @@ public class EnemyController : MonoBehaviour
         //Tuhoutuminen
         if(hpupdate <= 0)
         {
+            if(id == 4)
+            {
+                Instantiate(uzi, transform.position, transform.rotation);
+                PlayerController.raha = PlayerController.raha + 30;
+            }
+
             Destroy(gameObject);
-            PlayerController.raha = PlayerController.raha + 10;
+            PlayerController.raha = PlayerController.raha + rahaPalkinto;
         }
         //hpbar update
         healthbar.SetHealth(hpupdate, maxhp);

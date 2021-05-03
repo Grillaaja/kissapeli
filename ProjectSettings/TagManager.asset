@@ -26,6 +26,9 @@ TagManager:
   - PotionText
   - PlayerExplosive
   - critUi
+  - Passable
+  - Controls
+  - Spawnpoint
   layers:
   - Default
   - TransparentFX

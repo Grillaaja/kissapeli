@@ -8,6 +8,7 @@ public class CameraScript : MonoBehaviour
     public AudioSource music;
     public AudioSource shopMusic;
     public AudioSource bossMusic;
+    public AudioSource boom;
     private bool isChanged = false;
 
     // Start is called before the first frame update
