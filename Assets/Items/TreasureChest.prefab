@@ -115,7 +115,6 @@ MonoBehaviour:
         m_CallState: 2
   sp: {fileID: 8345596244548883834}
   id: 5
-  hinta: 0
 --- !u!58 &8345596244548883832
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,11 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49df3f79e47e0b44bac9ea21c68ddc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestClosed: {fileID: 21300000, guid: 8ac15358866865c43be8f3564ddd3a76, type: 3}
   chestOpen: {fileID: 21300000, guid: d09d0070374b4d249ac6dc1edbbf931d, type: 3}
   treasures:
   - {fileID: 7100758822119815666, guid: f5582d4648f6a1a48879739b04317625, type: 3}
   - {fileID: 1804373402302190321, guid: 6ac0dd193d10d644da7b0cdd6b167692, type: 3}
   - {fileID: 1804373402302190321, guid: 9f9257975f5f7634d89114ac2c3a7b0a, type: 3}
+  chestId: 1
+  lotteryTreasures: []
+  price: 0
   sp: {fileID: 8345596244548883834}
   isOpened: 0

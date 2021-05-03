@@ -11,6 +11,7 @@ public class PotionScript : MonoBehaviour
     private bool timeStarted = false;
     private Image potionImg;
     private Text potionTxt;
+   [SerializeField] Text potionTimer;
 
     void Start()
     {
@@ -24,11 +25,13 @@ public class PotionScript : MonoBehaviour
         {
             if (Input.GetKeyDown(interactKey))
             {
+                potionTimer.gameObject.SetActive(true);
                 timeStarted = true;
             }
         }
         if (timeStarted)
         {
+            potionTimer.text = "2";
             timer = timer + Time.deltaTime;
             Debug.Log("timer=" + timer + "timedeltatime=" + Time.deltaTime);
             if (timer > 2f)
@@ -39,6 +42,11 @@ public class PotionScript : MonoBehaviour
                 hasPotion = false;
                 potionImg.enabled = false;
                 potionTxt.enabled = false;
+                potionTimer.gameObject.SetActive(false);
+            }
+            if (timer > 1f)
+            {
+                potionTimer.text = "1";
             }
         }
     }

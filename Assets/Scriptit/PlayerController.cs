@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public static int raha = 0;
 
     //Aikoja yms
-    private float invincibilityTime = 0.5f;
+    private float invincibilityTime = 100.5f;
     private bool isInvincible = false;
     
 
